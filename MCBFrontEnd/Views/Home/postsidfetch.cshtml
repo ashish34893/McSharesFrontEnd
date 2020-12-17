@@ -48,12 +48,10 @@
                     $("#userTbl tbody").addClass("search");
                     $('#filter').keyup(function() {
                         var rex = new RegExp($(this).val(), 'i');
-                        // var $t = $(this).children(":eq(4))");
+                       
                         $('.search tr ').hide();
-
-                        //Recusively filter the jquery object to get results.
                         $('.search tr ').filter(function(i, v) {
-                          //Get the 3rd column object here which is userNamecolumn
+                        
                             var $t = $(this).children(":eq(" + "3" + ")");
                             return rex.test($t.text());
                         }).show();
@@ -80,7 +78,7 @@
 <div style="margin-top:5%">
     @using (Html.BeginForm("postsidfetch", "Home", FormMethod.Post, new { role = "form" }))
     {
-        <input type="number" name="id" value="" class="form-control" placeholder="Enter the id to be searched" />
+        <input type="number" name="id" value="" class="form-control" placeholder="Enter the id to be searched" required />
         <button type="submit" class="btn btn-warning pull-left"><i class="icon-menu2"></i>Get Data</button>
     }
 </div>
